@@ -1,0 +1,627 @@
+[
+  //--------------------------------------------------------------------------
+  // # basic
+  // ## editor
+  {
+    "key": "alt+/",
+    "command": "editor.action.commentLine",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  // ## terminal
+  {
+    "key": "alt+/",
+    "command": "workbench.action.terminal.focusFind",
+    "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
+  },
+  //--------------------------------------------------------------------------
+  // # extension
+  // ## comment translate
+  // {
+  //     "key": "alt+f y",
+  //     "command": "commentTranslate.clipboard"
+  // },
+  // {
+  //     "key": "alt+f t",
+  //     "command": "commentTranslate.replaceSelections"
+  // },
+  // search
+  {
+    "key": "ctrl+n",
+    "command": "search.focus.nextInputBox",
+    "when": "sideBarFocus && activeViewlet == 'workbench.view.search'"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "search.focus.previousInputBox",
+    "when": "sideBarFocus && activeViewlet == 'workbench.view.search'"
+  },
+  // explorer
+  {
+    "key": "d",
+    "command": "moveFileToTrash",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+  },
+  //--------------------------------------------------------------------------
+  // # window (as vim, but use `alt+w` as leader)
+  {
+    "key": "alt+w q",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "(!neovim.init || neovim.mode != insert) && !(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  {
+    "key": "alt+w w",
+    "command": "workbench.action.focusNextGroup",
+    "when": "(!neovim.init || neovim.mode != insert) && !(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  {
+    "key": "alt+w n",
+    "command": "workbench.action.files.newUntitledFile",
+    "when": "(!neovim.init || neovim.mode != insert) && !(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  {
+    "key": "alt+w v",
+    "command": "workbench.action.splitEditor",
+    "when": "(!neovim.init || neovim.mode != insert) && !(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  {
+    "key": "alt+w s",
+    "command": "workbench.action.splitEditorDown",
+    "when": "(!neovim.init || neovim.mode != insert) && !(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  // navigate
+  {
+    "key": "alt+w h",
+    "command": "workbench.action.navigateLeft",
+    "when": "(!neovim.init || neovim.mode != insert) && !(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  {
+    "key": "alt+w j",
+    "command": "workbench.action.navigateDown",
+    "when": "(!neovim.init || neovim.mode != insert) && !(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  {
+    "key": "alt+w k",
+    "command": "workbench.action.navigateUp",
+    "when": "(!neovim.init || neovim.mode != insert) && !(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  {
+    "key": "alt+w l",
+    "command": "workbench.action.navigateRight",
+    "when": "(!neovim.init || neovim.mode != insert) && !(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  // move [alt]
+  {
+    "key": "alt+w alt+h",
+    "command": "workbench.action.moveEditorToLeftGroup",
+    "when": "(!neovim.init || neovim.mode!= insert) && !(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  {
+    "key": "alt+w alt+j",
+    "command": "workbench.action.moveEditorToBelowGroup",
+    "when": "(!neovim.init || neovim.mode!= insert) &&!(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  {
+    "key": "alt+w alt+k",
+    "command": "workbench.action.moveEditorToAboveGroup",
+    "when": "(!neovim.init || neovim.mode!= insert) &&!(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  {
+    "key": "alt+w alt+l",
+    "command": "workbench.action.moveEditorToRightGroup",
+    "when": "(!neovim.init || neovim.mode!= insert) &&!(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  // function
+  {
+    "key": "alt+w z",
+    "command": "workbench.action.toggleEditorWidths",
+    "when": "(!neovim.init || neovim.mode!= insert) &&!(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  {
+    "key": "alt+w z",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "panelFocus"
+  },
+  {
+    "key": "alt+w alt+z",
+    "command": "workbench.action.toggleZenMode",
+    "when": "!isAuxiliaryWindowFocusedContext"
+  },
+  //--------------------------------------------------------------------------
+  // # view
+  // leader = "alt+f"
+  // ## resend
+  {
+    "key": "alt+f alt+f",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\u001b\u0066"
+    },
+    "when": "terminalFocus"
+  },
+  // ## editor group
+  {
+    "key": "alt+f space",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  {
+    "key": "alt+f 1",
+    "command": "workbench.action.focusFirstEditorGroup",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  {
+    "key": "alt+f 2",
+    "command": "workbench.action.focusSecondEditorGroup",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  {
+    "key": "alt+f 3",
+    "command": "workbench.action.focusThirdEditorGroup",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  {
+    "key": "alt+f 4",
+    "command": "workbench.action.focusFourthEditorGroup",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  {
+    "key": "alt+f 5",
+    "command": "workbench.action.focusFifthEditorGroup",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  {
+    "key": "alt+f 6",
+    "command": "workbench.action.focusSixthEditorGroup",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  {
+    "key": "alt+f 7",
+    "command": "workbench.action.focusSeventhEditorGroup",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  {
+    "key": "alt+f 8",
+    "command": "workbench.action.focusEighthEditorGroup",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  // ## tab
+  {
+    "key": "alt+f p",
+    "command": "workbench.action.previousEditorInGroup",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  {
+    "key": "alt+f n",
+    "command": "workbench.action.nextEditorInGroup",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  {
+    "key": "alt+f alt+p",
+    "command": "workbench.action.previousEditor",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  {
+    "key": "alt+f alt+n",
+    "command": "workbench.action.nextEditor",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  // ## navigate
+  {
+    "key": "alt+f h",
+    "command": "workbench.action.navigateLeft",
+    "when": "(!neovim.init || neovim.mode != insert) && !(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  {
+    "key": "alt+f j",
+    "command": "workbench.action.navigateDown",
+    "when": "(!neovim.init || neovim.mode != insert) && !(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  {
+    "key": "alt+f k",
+    "command": "workbench.action.navigateUp",
+    "when": "(!neovim.init || neovim.mode != insert) && !(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  {
+    "key": "alt+f l",
+    "command": "workbench.action.navigateRight",
+    "when": "(!neovim.init || neovim.mode != insert) && !(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  // ## move [alt]
+  {
+    "key": "alt+f alt+h",
+    "command": "workbench.action.moveEditorToLeftGroup",
+    "when": "(!neovim.init || neovim.mode!= insert) && !(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  {
+    "key": "alt+f alt+j",
+    "command": "workbench.action.moveEditorToBelowGroup",
+    "when": "(!neovim.init || neovim.mode!= insert) &&!(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  {
+    "key": "alt+f alt+k",
+    "command": "workbench.action.moveEditorToAboveGroup",
+    "when": "(!neovim.init || neovim.mode!= insert) &&!(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  {
+    "key": "alt+f alt+l",
+    "command": "workbench.action.moveEditorToRightGroup",
+    "when": "(!neovim.init || neovim.mode!= insert) &&!(panelFocus || sideBarFocus || auxiliaryBarFocus)"
+  },
+  // ## side bar
+  {
+    "key": "alt+f [",
+    "command": "workbench.action.focusSideBar",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  {
+    "key": "alt+f alt+[",
+    "command": "workbench.action.closeSidebar",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  {
+    "key": "alt+f ]",
+    "command": "workbench.action.focusAuxiliaryBar",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  {
+    "key": "alt+f alt+]",
+    "command": "workbench.action.closeAuxiliaryBar",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  {
+    "key": "alt+f ;",
+    "command": "workbench.action.focusPanel",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  {
+    "key": "alt+f alt+;",
+    "command": "workbench.action.closePanel",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  {
+    "key": "alt+f alt+/",
+    "command": "workbench.action.showCommands",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  {
+    "key": "alt+f f",
+    "command": "workbench.action.quickOpen",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  // ## First Side Bar
+  // ### explorer
+  {
+    "key": "alt+f e",
+    "command": "workbench.explorer.fileView.focus",
+    "when": "!neovim.init || neovim.mode != insert"
+    // "when": "!sideBarFocus || activeViewlet != 'workbench.view.explorer'"
+  },
+  {
+    "key": "alt+f alt+e",
+    "command": "workbench.files.action.focusOpenEditorsView",
+    "when": "!neovim.init || neovim.mode != insert"
+    // "when": "!sideBarFocus || activeViewlet != 'workbench.view.explorer'"
+  },
+  // {
+  //     "key": "alt+f e",
+  //     "command": "workbench.view.explorer",
+  //     "when": "sideBarFocus && activeViewlet == 'workbench.view.explorer'"
+  // },
+  // {
+  //     "key": "alt+f alt+e",
+  //     "command": "workbench.view.explorer",
+  //     "when": "sideBarFocus && activeViewlet == 'workbench.view.explorer'"
+  // },
+
+  // {
+  //     "key": "alt+f t",
+  //     "command": "timeline.focus"
+  // },
+  // {
+  //     "key": "alt+f d",
+  //     "command": "docsView.documentation.focus"
+  // },
+
+  // ### project manager
+  {
+    "key": "alt+f i",
+    "command": "projectsExplorerFavorites.focus",
+    "when": "!neovim.init || neovim.mode != insert"
+    // "when": "!sideBarFocus || activeViewlet != 'workbench.view.extension.project-manager'"
+  },
+  {
+    "key": "alt+f alt+i",
+    "command": "projectsExplorerGit.focus",
+    "when": "!neovim.init || neovim.mode != insert"
+    // "when": "!sideBarFocus || activeViewlet != 'workbench.view.extension.project-manager'"
+  },
+  // {
+  //     "key": "alt+f p",
+  //     "command": "workbench.view.extension.project-manager",
+  //     "when": "sideBarFocus && activeViewlet == 'workbench.view.extension.project-manager'"
+  // },
+  // {
+  //     "key": "alt+f alt+p",
+  //     "command": "workbench.view.extension.project-manager",
+  //     "when": "sideBarFocus && activeViewlet == 'workbench.view.extension.project-manager'"
+  // },
+
+  // ### search // TODO: wip
+  // ,"when": "!neovim.init || neovim.mode != insert"
+  // (!neovim.init || neovim.mode != insert) &&
+  {
+    "key": "alt+f /",
+    "command": "workbench.view.search.focus",
+    "when": "!neovim.init || neovim.mode != insert"
+    // "when": "!sideBarFocus || activeViewlet != 'workbench.view.search'"
+  },
+  // {
+  //     "key": "alt+f /",
+  //     "command": "search.action.focusSearchList",
+  //     "when": "inputFocus && activeViewlet == 'workbench.view.search'"
+  // },
+  // {
+  //     "key": "alt+f /",
+  //     "command": "workbench.view.search.focus",
+  //     "when": "!inputFocus && activeViewlet == 'workbench.view.search'"
+  // },
+  // {
+  //     "key": "ctrl+shift+f",
+  //     "command": "workbench.view.search",
+  //     "when": "workbench.view.search.active && neverMatch =~ /doesNotMatch/"
+  // },
+
+  // ### debug
+  // ignore
+  // ### test
+  {
+    "key": "alt+f t",
+    "command": "workbench.view.extension.test",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  // ### scm (git)
+  {
+    "key": "alt+f g",
+    "command": "workbench.view.scm",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  // ### notes
+  {
+    "key": "alt+f v",
+    "command": "workbench.view.extension.vscode-notes",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  // ### todo tree
+  {
+    "key": "alt+f o",
+    "command": "workbench.view.extension.todo-tree-container",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  // ### bookmarks
+  {
+    "key": "alt+f b",
+    "command": "workbench.view.extension.bookmarks",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  // ### ai assistant
+  {
+    "key": "alt+f a",
+    "command": "tongyi.show.panel",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  // ### extensions
+  {
+    "key": "alt+f x",
+    "command": "workbench.view.extensions",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+
+  // ## Secondary Side Bar
+  // ### docker
+  {
+    "key": "alt+f d",
+    "command": "workbench.view.extension.dockerView",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  // ### remote
+  {
+    "key": "alt+f r",
+    "command": "targetsWsl.focus",
+    "when": "!neovim.init || neovim.mode != insert"
+    // "when": "!auxiliaryBarFocus || activeAuxiliary != 'workbench.view.remote'"
+  },
+  {
+    "key": "alt+f alt+r",
+    "command": "targetsContainers.focus",
+    "when": "!neovim.init || neovim.mode != insert"
+    // "when": "!auxiliaryBarFocus || activeAuxiliary != 'workbench.view.remote'"
+  },
+  // {
+  //     "key": "alt+f r",
+  //     "command": "workbench.view.remote",
+  //     "when": "auxiliaryBarFocus && activeAuxiliary == 'workbench.view.remote'"
+  // },
+  // {
+  //     "key": "alt+f alt+r",
+  //     "command": "workbench.view.remote",
+  //     "when": "auxiliaryBarFocus && activeAuxiliary == 'workbench.view.remote'"
+  // },
+
+  // ### cl_eide_view
+  {
+    "key": "alt+f c",
+    "command": "cl.eide.view.projects.focus",
+    "when": "!neovim.init || neovim.mode != insert"
+    // "when": "!auxiliaryBarFocus || activeAuxiliary != 'workbench.view.extension.cl_eide_view'"
+  },
+  // {
+  //     "key": "alt+f c",
+  //     "command": "workbench.view.extension.cl_eide_view",
+  //     "when": "auxiliaryBarFocus && activeAuxiliary == 'workbench.view.extension.cl_eide_view'"
+  // },
+  // Panel
+
+  // ## Panel
+  // ### problems
+  {
+    "key": "alt+f m",
+    "command": "workbench.actions.view.problems",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  // ### output
+  {
+    "key": "alt+f u",
+    "command": "workbench.action.output.toggleOutput",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  // ### debug console
+  {
+    "key": "alt+f y",
+    "command": "workbench.debug.action.toggleRepl",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  // ### gitlens graph
+  {
+    "key": "alt+f alt+g",
+    // "command": "gitlens.showGraphView"
+    "command": "gitlens.toggleGraph",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  // ### serial monitor
+  {
+    "key": "alt+f s",
+    "command": "workbench.view.extension.vscode-serial-monitor-tools",
+    "when": "!neovim.init || neovim.mode != insert"
+  },
+  //--------------------------------------------------------------------------
+  // # neovim
+  // ## resend
+  // i
+  {
+    "key": "alt+f",
+    "command": "vscode-neovim.send",
+    "args": "<A-f>",
+    "when": "editorTextFocus && neovim.init && neovim.mode == insert"
+  },
+  // i
+  {
+    "key": "alt+b",
+    "command": "vscode-neovim.send",
+    "args": "<A-b>",
+    "when": "editorTextFocus && neovim.init && neovim.mode == insert"
+  },
+  // nvo
+  {
+    "key": "alt+j",
+    "command": "vscode-neovim.send",
+    "args": "<A-J>",
+    "when": "editorTextFocus && neovim.init && neovim.mode != 'insert'"
+  },
+  // nvo
+  {
+    "key": "alt+s",
+    "command": "vscode-neovim.send",
+    "args": "<A-S>",
+    "when": "editorTextFocus && neovim.init && neovim.mode != 'insert'"
+  },
+  // ## basic
+  // ### escape
+  {
+    "command": "vscode-neovim.compositeEscape1",
+    "key": "j",
+    "when": "neovim.mode == insert && editorTextFocus",
+    "args": "j"
+  },
+  {
+    "command": "vscode-neovim.compositeEscape2",
+    "key": "k",
+    "when": "neovim.mode == insert && editorTextFocus",
+    "args": "k"
+  },
+  // ## helix style // FIXME: may be bug
+  // ### space
+  // nvo
+  {
+    "key": "alt+k",
+    "command": "editor.action.showHover",
+    "when": "editorTextFocus && (neovim.init && neovim.mode != 'insert')"
+  },
+  {
+    "key": "alt+k",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "editorHoverFocused"
+  },
+  // {
+  //     "key": "alt+k",
+  //     "command": "editor.action.showDefinitionPreviewHover",
+  //     "when": "editorTextFocus && neovim.mode == 'normal'"
+  // },
+
+  //--------------------------------------------------------------------------
+  // delete
+  {
+    "key": "ctrl+k ctrl+w",
+    "command": "-workbench.action.closeAllEditors"
+  },
+  {
+    "key": "ctrl+g",
+    "command": "-workbench.action.gotoLine"
+  },
+  {
+    "key": "alt+unknown",
+    "command": "-commentTranslate.clipboard"
+  },
+  {
+    "key": "shift+alt+t",
+    "command": "-commentTranslate.replaceSelections",
+    "when": "editorHasSelection"
+  },
+  {
+    "key": "d",
+    "command": "-deleteFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "-workbench.action.terminal.focusFind",
+    "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-workbench.action.files.newUntitledFile"
+  },
+  {
+    "key": "alt+c",
+    "command": "-gitlens.showQuickCommitFileDetails",
+    "when": "editorTextFocus && !gitlens:disabled && config.gitlens.keymap == 'alternate'"
+  },
+  {
+    "key": "alt+h",
+    "command": "-gitlens.showQuickFileHistory",
+    "when": "!gitlens:disabled && config.gitlens.keymap == 'alternate'"
+  },
+  {
+    "key": "alt+s",
+    "command": "-gitlens.showQuickRepoStatus",
+    "when": "!gitlens:disabled && config.gitlens.keymap == 'alternate'"
+  },
+  {
+    "key": "alt+b",
+    "command": "-gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  {
+    "key": "ctrl+down",
+    "command": "-search.focus.nextInputBox",
+    "when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible"
+  },
+  {
+    "key": "ctrl+up",
+    "command": "-search.focus.previousInputBox",
+    "when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible && !searchInputBoxFocus"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "-workbench.action.quickOpen"
+  }
+]

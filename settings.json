@@ -1,0 +1,361 @@
+{
+  // cSpell:enableCompoundWords
+  /***************************************************************************
+   * @Author      CAESIUS-TIM
+   * @Date        2023-12-25
+   * @Github      https://github.com/CAESIUS-TIM
+   * @Description Personal vscode-neovim settings.json
+   *
+   *  ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄▄ ▄▄   ▄▄ ▄▄▄▄▄▄▄
+   * █       █       █       █       █   █  █ █  █       █
+   * █       █   ▄   █    ▄▄▄█  ▄▄▄▄▄█   █  █ █  █  ▄▄▄▄▄█
+   * █     ▄▄█  █▄█  █   █▄▄▄█ █▄▄▄▄▄█   █  █▄█  █ █▄▄▄▄▄
+   * █    █  █       █    ▄▄▄█▄▄▄▄▄  █   █       █▄▄▄▄▄  █
+   * █    █▄▄█   ▄   █   █▄▄▄ ▄▄▄▄▄█ █   █       █▄▄▄▄▄█ █
+   * █▄▄▄▄▄▄▄█▄▄█ █▄▄█▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█▄▄▄█▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█
+   **************************************************************************/
+  /***************************************************************************
+   * # This is title comment. Search them with `* #`.
+   **************************************************************************/
+
+  /***************************************************************************
+   * # Workbench
+   **************************************************************************/
+  "workbench.settings.applyToAllProfiles": [],
+  "workbench.colorCustomizations": {
+    "editor.lineHighlightBackground": "#66ccff3d",
+    "editor.lineHighlightBorder": "#39c5bb3d"
+  },
+  /***************************************************************************
+   * # Files
+   **************************************************************************/
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 300000, // 1000 * 60 * 5 = 5 minutes
+
+  /***************************************************************************
+   * # Editor
+   **************************************************************************/
+  // search
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true
+  },
+  // editor
+  "editor.fontFamily": "'JetBrainsMono Nerd Font Mono'",
+  "editor.formatOnSave": true,
+  "editor.lineNumbers": "relative", // vim
+  "editor.minimap.autohide": true,
+  "editor.minimap.maxColumn": 120,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.scale": 2,
+  // "editor.parameterHints.enabled": false,
+  "editor.renderControlCharacters": true,
+  "editor.renderFinalNewline": "on",
+  "editor.renderLineHighlight": "all",
+  "editor.renderLineHighlightOnlyWhenFocus": true,
+  "editor.renderWhitespace": "boundary",
+  "editor.rulers": [80, 120],
+  // "editor.wordWrap": "wordWrapColumn", // no-vim
+  // "editor.wordWrapColumn": 120, // no-vim
+
+  /***************************************************************************
+   * # Terminal
+   **************************************************************************/
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash",
+      "icon": "terminal-bash"
+    },
+    "Nu": {
+      "path": "C:\\Users\\26523\\.cargo\\bin\\nu.exe",
+      "icon": "table"
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "Nu",
+  /***************************************************************************
+   * # Languages
+   **************************************************************************/
+  /**
+   * style
+   *
+   * > [!TIP]
+   * > use `.editorconfig`
+   * > `.editorconfig` for format, vscode settings.json for show.
+   */
+  "files.trimFinalNewlines": true,
+  "files.insertFinalNewline": true,
+  "editor.insertSpaces": true,
+  "editor.useTabStops": true,
+  "editor.detectIndentation": false,
+  // === json/jsonc ===
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.tabSize": 2
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  // prettier // FIXME: don't support `.editorconfig`?
+  "prettier.tabWidth": 2,
+  "prettier.trailingComma": "es5",
+  "prettier.semi": true,
+  "prettier.endOfLine": "crlf",
+  "prettier.quoteProps": "preserve",
+  "prettier.singleQuote": false,
+  // json-language-features
+  "json.validate.enable": true,
+
+  // === lua ===
+  "[lua]": {
+    "editor.defaultFormatter": "JohnnyMorganz.stylua",
+    "editor.tabSize": 2
+  },
+  "stylua.releaseVersion": "latest",
+  // "stylua.styluaPath": null,
+  "stylua.styluaPath": "/home/timxing/.cargo/bin/stylua",
+
+  // === markdown ===
+  "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+  "markdown-preview-enhanced.breakOnSingleNewLine": false,
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  // === python ===
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
+    }
+  },
+
+  "python.analysis.typeCheckingMode": "basic",
+  // "python.analysis.inlayHints.callArgumentNames": true, // Too unreadable
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.pytestParameters": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  /***************************************************************************
+   * # Git
+   **************************************************************************/
+  /***************************************************************************
+   * # Tools
+   **************************************************************************/
+  /**
+   * # cSpell
+   *
+   * > [!Tip]
+   * > cSpell:disable
+   * > applo # ok
+   * > cSpell:enable
+   * > applo # "applo": Unknown word.
+   *
+   * For more [tips](https://github.com/streetsidesoftware/vscode-spell-checker)
+   */
+  // Controls the maximum number of spelling errors per document.
+  "cSpell.enableFiletypes": ["*"],
+  "cSpell.maxNumberOfProblems": 100,
+  // Controls the number of suggestions shown.
+  "cSpell.numSuggestions": 8,
+  // The minimum length of a word before checking it against a dictionary.
+  "cSpell.minWordLength": 4,
+  "cSpell.customDictionaries": {
+    "dotfiles": {
+      "name": "dotfiles",
+      "path": "~/dotfiles.txt",
+      "description": "Words used in dotfiles",
+      "addWords": true
+    },
+    "custom": true, // Enable the `custom` dictionary
+    "internal-terms": false // Disable the `internal-terms` dictionary
+  },
+  "cSpell.dictionaryDefinitions": [],
+  "cSpell.languageSettings": [],
+  "cSpell.userWords": [
+    "Anson",
+    "asvetliakov",
+    "CAESIUS",
+    "Codegeex",
+    "esbenp",
+    "keymap",
+    "Morganz",
+    "neovim",
+    "nvim",
+    "pytest",
+    "rgba",
+    "stylua",
+    "timxing"
+  ],
+
+  /**
+   * # Todo Tree
+   */
+  "todo-tree.highlights.customHighlight": {
+    "BUG": {
+      "icon": "bug"
+    },
+    "FIXME": {
+      "icon": "tools"
+    },
+    "TODO": {
+      "icon": "zap"
+    },
+    "XXX": {
+      "icon": "x"
+    },
+    "[ ]": {
+      "icon": "issue-draft"
+    },
+    "[x]": {
+      "icon": "issue-closed"
+    },
+    "HINT": {
+      "icon": "info"
+    }
+  },
+  "todo-tree.general.tags": [
+    "BUG", // Discover and severe
+    "FIXME", // Discover but runnable
+    "TODO",
+    "XXX", // Deprecated
+    "[ ]",
+    "[x]",
+    "HINT" // Maybe helpful
+  ],
+  "todo-tree.highlights.backgroundColourScheme": [
+    "red", // BUG:
+    "OrangeRed", // FIXME:
+    "orange", // TODO:
+    "blue", // XXX:
+    "BlueViolet", // [ ]:
+    "LimeGreen", // [x]:
+    "DeepSkyBlue" // HINT:
+  ],
+  "todo-tree.highlights.foregroundColourScheme": [
+    "white", // BUG:
+    "white", // FIXME:
+    "white", // TODO:
+    "white", // XXX:
+    "white", // [ ]:
+    "white", // [x]:
+    "white" // HINT:
+  ],
+  "todo-tree.highlights.defaultHighlight": {
+    "type": "text-and-comment",
+    "opacity": 50,
+    "gutterIcon": true
+  },
+  "todo-tree.highlights.useColourScheme": true,
+  /**
+     * ## line
+     * `REM`: vb
+     * `%`: tex
+     * `--`: sql
+     * `//`: c
+     * `#`: python
+     * `;`: asm
+
+     * ## block
+     * `/ * * /`: c
+     * `<!-- -->`: html
+     * `""" """`: python
+     * `''' '''`: python
+     * '--[[ ]]': lua
+     */
+  // "todo-tree.regex.enableMultiLine": true,
+  "todo-tree.regex.regex": "(//|#|;|%|REM|^[ \\t]*\\*+|--|^|^[ \\t]*(-|\\d+.))\\s*($TAGS)|(\"\"\"|'''|<!--|/\\*+|--\\[\\[)\\s*($TAGS)[\\s\\S]*?(\"\"\"|'''|-->|\\*/|\\]\\])",
+
+  /**
+   * # Bookmarks
+   */
+  "bookmarks.saveBookmarksInProject": true,
+
+  /**
+   * # Error Lens
+   */
+  "errorLens.excludeBySource": ["cSpell"],
+  "errorLens.fontSize": "13",
+  "errorLens.fontStyleItalic": true,
+  "errorLens.gutterIconsEnabled": true,
+  "errorLens.onSave": true,
+
+  /**
+   * # Indent Rainbow
+   */
+  "indentRainbow.indicatorStyle": "classic",
+  "indentRainbow.lightIndicatorStyleLineWidth": 1,
+  // "indentRainbow.colors": [
+  //     "rgba(255,240,50,0.7)",
+  //     "rgba(57,197,187,0.7)",
+  //     "rgba(255,20,000,0.7)",
+  //     "rgba(112,208,256,0.7)"
+  // ],
+
+  /**
+   * # Notes
+   */
+  "Notes.notesLocation": "C:\\Users\\26523\\Documents\\vscode-notes",
+
+  /**
+   * # Project Manager
+   */
+  "projectManager.git.baseFolders": ["~/Git"],
+
+  /**
+   * # Comment Translate
+   */
+  "commentTranslate.targetLanguage": "zh-CN",
+  /***************************************************************************
+   * # neovim
+   **************************************************************************/
+  "vscode-neovim.useWSL": true,
+  // manage nvim by bob
+  "vscode-neovim.neovimExecutablePaths.linux": "/home/timxing/.local/share/bob/nvim-bin/nvim",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  /***************************************************************************
+   * # Misc
+   **************************************************************************/
+  "Codegeex.Privacy": false,
+  "git.openRepositoryInParentFolders": "prompt",
+  "vs-kubernetes": {
+    "vscode-kubernetes.helm-path-windows": "C:\\Users\\26523\\.vs-kubernetes\\tools\\helm\\windows-amd64\\helm.exe",
+    "vscode-kubernetes.minikube-path-windows": "C:\\Users\\26523\\.vs-kubernetes\\tools\\minikube\\windows-amd64\\minikube.exe"
+  },
+  "files.associations": {
+    ".env*": "dotenv"
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "keyword.other.dotenv",
+        "settings": {
+          "foreground": "#FF000000"
+        }
+      }
+    ]
+  },
+  // "background.customImages": [
+  //     "file:///C:Users/26523/Pictures/rust_panic(已去底).png"
+  // ],
+  "background.style": {
+    "background-position": "100% 100%",
+    "background-size": "auto",
+    "opacity": 0.2
+  }
+}
